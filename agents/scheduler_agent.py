@@ -16,8 +16,8 @@ def send_interview_invite(candidate_name, candidate_email, job_title):
     Best regards,
     Interview Scheduler Team
     """
-    sender_email = "vyshnavik0811@gmail.com"
-    sender_password = "caht bykq lcmb wlcs"
+    sender_email = "" # Enter the sender email
+    sender_password = "" # Enter the sender app password
 
     msg = MIMEMultipart()
     msg['From'] = sender_email

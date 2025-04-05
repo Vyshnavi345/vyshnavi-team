@@ -5,7 +5,6 @@ import re
 import json
 import sqlite3
 from utils.extract_text import resume_to_text
-from agents.jd_agent import summarize_jd
 from agents.cv_agent import extract_cv_info
 from agents.qualification_agent import extract_jd_requirements
 from agents.matching_agent import calculate_match_score
@@ -169,11 +168,9 @@ def run_pipeline():
         # Extract specific sections from the JD text
         full_jd_text = job_description
         desc_section = extract_section(full_jd_text, ['Description:', 'Responsibilities:', 'Qualifications:'])
-        #qualifications_section = extract_section(full_jd_text, ['Qualifications:'])
         
         # JD Agent: Get summary and requirements
         print(f"Extracting JD summary for '{job_title}'...")
-        #jd_summary = summarize_jd(desc_section)  # Send to Ollama
         jd_requirements = extract_jd_requirements(desc_section)  # Extract JD requirements
         
         # Store the job description and JD summary in the database
